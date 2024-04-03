@@ -26,6 +26,12 @@ public class OrderRepository {
 
     public List<Order> findOrdersWithOptionalFilters(String seller, LocalDate startDate, LocalDate endDate,
                                                      String orderStatus, String paymentMethod, String paymentStatus) {
+        Query query = getQuery(seller, startDate, endDate, orderStatus, paymentMethod, paymentStatus);
+
+        return mongoTemplate.find(query, Order.class);
+    }
+
+    public Query getQuery(String seller, LocalDate startDate, LocalDate endDate, String orderStatus, String paymentMethod, String paymentStatus) {
         Query query = new Query();
 
         query.addCriteria(Criteria.where("seller").is(seller));
@@ -51,6 +57,6 @@ public class OrderRepository {
             query.addCriteria(Criteria.where("payment.status").is(paymentStatus.toUpperCase()));
         }
 
-        return mongoTemplate.find(query, Order.class);
+        return query;
     }
 }
