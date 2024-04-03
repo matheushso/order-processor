@@ -2,7 +2,7 @@ package br.com.processor.order.advice;
 
 import br.com.processor.order.dto.ErrorDTO;
 import br.com.processor.order.enums.ErrorType;
-import br.com.processor.order.exception.AuthorizationException;
+import br.com.processor.order.exception.AuthException;
 import br.com.processor.order.exception.DateFormatException;
 import br.com.processor.order.exception.InvalidDataTypeException;
 import io.jsonwebtoken.JwtException;
@@ -25,14 +25,14 @@ public class CostumControllerAdvice {
         return handleError(HttpStatus.UNAUTHORIZED, ErrorType.NAO_AUTORIZADO, ex, UNAUTHORIZED);
     }
 
-    @ExceptionHandler(AuthorizationException.class)
-    public ResponseEntity<ErrorDTO> getAuthorizationException(AuthorizationException ex) {
+    @ExceptionHandler(AuthException.class)
+    public ResponseEntity<ErrorDTO> getAuthException(AuthException ex) {
         return handleError(HttpStatus.UNAUTHORIZED, ErrorType.NAO_AUTORIZADO, ex, ex.getMessage());
     }
 
     @ExceptionHandler(JwtException.class)
-    public ResponseEntity<ErrorDTO> getJwtException(JwtException ex) {
-        return getAuthorizationException(new AuthorizationException());
+    public ResponseEntity<ErrorDTO> getJwtException() {
+        return getAuthException(new AuthException());
     }
 
     @ExceptionHandler(DateFormatException.class)

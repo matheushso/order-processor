@@ -1,6 +1,6 @@
 package br.com.processor.order.service;
 
-import br.com.processor.order.exception.AuthorizationException;
+import br.com.processor.order.exception.AuthException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -19,7 +19,7 @@ public class AuthService {
 
     public String validateAuthAndDecode(String auth) {
         if (auth == null || auth.isBlank()) {
-            throw new AuthorizationException();
+            throw new AuthException();
         }
 
         if (auth.startsWith(BEARER)) {
@@ -40,10 +40,9 @@ public class AuthService {
         String sellerId = claimsJws.getPayload().get("sellerId", String.class);
 
         if (sellerId == null || sellerId.isEmpty()) {
-            throw new AuthorizationException("Não foi informado sellerId no JWT, favor informar.");
+            throw new AuthException("Não foi informado sellerId no JWT, favor informar.");
         }
 
         return sellerId;
     }
-
 }

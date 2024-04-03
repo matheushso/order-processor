@@ -1,14 +1,14 @@
 package br.com.processor.order.exception;
 
-public class AuthorizationException extends RuntimeException {
+public class AuthException extends RuntimeException {
 
     private static final String AUTORIZACAO_INVALIDA = "O token JWT informado é invalido.";
 
-    public AuthorizationException() {
+    public AuthException() {
         super(AUTORIZACAO_INVALIDA);
     }
 
-    public AuthorizationException(String message) {
+    public AuthException(String message) {
         super(message);
     }
 }
