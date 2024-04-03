@@ -40,7 +40,7 @@ public class OrderService {
             return;
         }
 
-        if ((startDate != null && endDate == null) || (startDate == null && endDate != null)) {
+        if (startDate == null || endDate == null) {
             throw new DateFormatException("Deve ser informado data inicial e data final.");
         }
 
