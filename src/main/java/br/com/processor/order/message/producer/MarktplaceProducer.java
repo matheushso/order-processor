@@ -1,10 +1,9 @@
-package br.com.processor.order;
+package br.com.processor.order.message.producer;
 
 import br.com.processor.order.dto.*;
 import br.com.processor.order.enums.OrderStatus;
 import br.com.processor.order.enums.PaymentMethod;
 import br.com.processor.order.enums.PaymentStatus;
-import br.com.processor.order.message.producer.KafkaProducerMessage;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +19,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Configuration
 @EnableScheduling
-public class OrderSimulate {
+public class MarktplaceProducer {
 
     @Autowired
     private KafkaProducerMessage kafkaProducerMessage;
@@ -38,7 +37,7 @@ public class OrderSimulate {
         for (int count = 0; count < 5; count++) {
             OrderDTO order = getOrderDTO(sellerIds.get(count));
 
-            System.out.println("====== Enviando Order para topico: " + kafkaProducerMessage.getNameKafkaTopic() + " ======");
+            System.out.println("====== Sending order to topic: " + kafkaProducerMessage.getNameKafkaTopic() + " ======");
             kafkaProducerMessage.sendMessage(order);
         }
     }
