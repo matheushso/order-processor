@@ -18,6 +18,9 @@ simulando um Marktplace, visando criar uma massa de dados para testes de integra
 Disponível em `/swagger-ui/index.html#/`
 
 ![documentacao_api_order-processor](https://github.com/matheushso/order-processor/assets/51098870/921b9dfb-7d69-4e14-b056-ffdb3030619b)
+![documentacao_api_order-processor_2](https://github.com/matheushso/order-processor/assets/51098870/7933a1f6-957c-4553-8d4c-0c05e8e32c7e)
+![documentacao_api_order-processor_3](https://github.com/matheushso/order-processor/assets/51098870/0ead6f26-85fd-4dc3-8fb8-1ec9b385deea)
+![documentacao_api_order-processor_4](https://github.com/matheushso/order-processor/assets/51098870/152d1555-8834-418e-ba7c-994ee48d1f66)
 
 ## ✔️ Tecnologias utilizadas
 - Java 17
@@ -45,7 +48,7 @@ da aplicação.
   medir a cobertura de testes em projetos Java, auxiliando a garantir uma 
 cobertura abrangente e eficiente.
 
-# Print Testes Unitários
+![order-processor-coverage](https://github.com/matheushso/order-processor/assets/51098870/2738dc26-c07a-4734-b309-769073da28d4)
 
 # Explicação do projeto
 
