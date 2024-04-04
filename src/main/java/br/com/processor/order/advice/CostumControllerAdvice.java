@@ -47,7 +47,7 @@ public class CostumControllerAdvice {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorDTO> getException(Exception ex) {
-        return handleError(HttpStatus.BAD_REQUEST, ErrorType.DESCONHECIDO, ex, UNKNOWN_ERROR);
+        return handleError(HttpStatus.INTERNAL_SERVER_ERROR, ErrorType.DESCONHECIDO, ex, UNKNOWN_ERROR);
     }
 
     private ResponseEntity<ErrorDTO> handleError(HttpStatus httpStatus, ErrorType errorType, Throwable throwable, String message) {
